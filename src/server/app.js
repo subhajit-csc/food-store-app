@@ -7,6 +7,7 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 
 const userRouters = require('./routers/userRouters')
+const catalogRouters =  require('./routers/catalogRouters')
 //var apiRouter = require('./routes/book');
 
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, '../../dist/public')));
 
 //Router
 app.use('/api/v1',userRouters)
+app.use('/api/v1',catalogRouters)
 
 //Swagger config
 let options = {

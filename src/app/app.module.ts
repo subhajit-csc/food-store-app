@@ -8,10 +8,12 @@ import { AuthService } from './_services/auth/auth.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AuthGuard } from './_helpers/auth-guard/auth-guard.service';
 import { httpInterceptorProviders } from './_helpers/http-interceptors';
+import { MarketplaceComponent } from './catalog/marketplace/marketplace.component';
 
 @NgModule({
   declarations: [
-    AppComponent    
+    AppComponent,
+    MarketplaceComponent    
   ],
   imports: [
     BrowserModule,    

@@ -23,7 +23,7 @@ const { toJSON, paginate } = require('./plugins');
  * @property {number} discount - Discount - eg: 10
  */
 
-const foodCategorySchema = new mongoose.Schema({
+const categorySchema = new mongoose.Schema({
   categoryName: {
     type: String,
     required: true,
@@ -32,8 +32,8 @@ const foodCategorySchema = new mongoose.Schema({
     unique: true
   },
   categoryDescription: {
-    type: String,    
-    trim: true    
+    type: String,
+    trim: true
   },
   items: [{
     itemName: {
@@ -75,7 +75,7 @@ const foodCategorySchema = new mongoose.Schema({
         required: true
       }
     }
-      
+
     ]
   }
   ]
@@ -86,11 +86,11 @@ const foodCategorySchema = new mongoose.Schema({
 
 
 // add plugin that converts mongoose to json
-foodCategorySchema.plugin(toJSON);
-foodCategorySchema.plugin(paginate);
+categorySchema.plugin(toJSON);
+categorySchema.plugin(paginate);
 
 //Define Text Index
-foodCategorySchema.index({
+categorySchema.index({
   categoryName: "text",
   categoryDescription: "text",
   itemName: "text",
@@ -107,6 +107,6 @@ foodCategorySchema.index({
   });
 
 
-const FoodCategory = mongoose.model('foodcategory', foodCategorySchema)
+const Catalog = mongoose.model('catalog', categorySchema)
 
-module.exports = FoodCategory
+module.exports = Catalog
