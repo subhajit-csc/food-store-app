@@ -7,6 +7,7 @@ import { SignupModule } from '../common/signup/signup.module';
 import { DashboardModule } from '../common/dashboard/dashboard.module';
 import { AuthGuard } from '../_helpers/auth-guard/auth-guard.service';
 import { EditUserModule } from '../common/edit-user/edit-user.module';
+import { MarketplaceModule } from '../catalog/marketplace/marketplace.module';
 
 const routes: Routes = [
   {
@@ -28,7 +29,8 @@ const routes: Routes = [
     component: FooterOnlyLayoutComponent,
     children: [
       { path: 'login', loadChildren: () => LoginModule },
-      { path: 'signup', loadChildren: () => SignupModule }
+      { path: 'signup', loadChildren: () => SignupModule },
+      { path: 'marketplace', loadChildren: () => MarketplaceModule }
     ]
   },
 ];

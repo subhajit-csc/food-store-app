@@ -12,11 +12,10 @@ import { MarketplaceComponent } from './catalog/marketplace/marketplace.componen
 
 @NgModule({
   declarations: [
-    AppComponent,
-    MarketplaceComponent    
+    AppComponent
   ],
   imports: [
-    BrowserModule,    
+    BrowserModule,
     RouterModule.forRoot([]),
     LayoutModule,
     HttpClientModule,
@@ -25,3 +24,11 @@ import { MarketplaceComponent } from './catalog/marketplace/marketplace.componen
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+//TODO: Need to remove this section
+declare module "@angular/core" {
+  interface ModuleWithProviders<T = any> {
+    ngModule: Type<T>;
+    providers?: Provider[];
+  }
+}
