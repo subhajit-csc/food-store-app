@@ -1,46 +1,23 @@
-<div class="card">
-  <h5 class="card-header">Featured</h5>
-  <div class="card-body">
-    <div class="row row-cols-1 row-cols-md-3 g-100">
-      <div class="col">
-        <div class="card h-100">
-          <img src="/assets/images/biriyani.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+ <div class="card" *ngFor="let catalog of catagories">
+  <h5 class="card-header">{{catalog.categoryName}}</h5>
+      <div class="card-body">
+        <div class="row row-cols-1 row-cols-md-3 g-100" >
+          <div class="col" *ngFor="let item of catalog.items">
+            <div class="card h-100">
+              <img [src]="catalog.categoryName === 'Moglai' ? '/assets/images/biriyani.png' : '/assets/images/south-indian-idli.jpg' " class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title">{{item.itemName}}</h5>
+                <p class="card-text">{{item.description}}</p>
+                <ul class="list-group" *ngFor="let price of item.prices">
+                  <li class="list-group-item">{{price.price}} / {{price.unit}} - {{price.discount}} % Discount</li>
+                </ul>
+                <a href="#" style="color: #ffffff"
+                           [class]="item.inStock ? 'badge bg-success':'badge bg-danger'">
+                  {{item.inStock ? 'Add to cart' : 'Soldout'}}
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="/assets/images/biriyani.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a short card.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="/assets/images/biriyani.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card h-100">
-          <img src="/assets/images/biriyani.png" class="card-img-top" alt="...">
-          <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-
+ </div>
